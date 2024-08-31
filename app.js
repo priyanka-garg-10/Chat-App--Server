@@ -45,7 +45,12 @@ cloudinary.config({
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
-    cors: corsOptions,
+    cors: {
+        origin: 'https://chat-app-frontend-tau-ten.vercel.app', 
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        credentials: true
+    }
 });
 
 app.set("io", io);
