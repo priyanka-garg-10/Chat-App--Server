@@ -61,7 +61,10 @@ app.get("/", (req, res) => {
 });
 
 app.use(cors({
-  origin: 'https://chat-app-frontend-tau-ten.vercel.app' 
+    origin: 'https://chat-app-frontend-tau-ten.vercel.app', 
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
 }));
 
 io.use((socket, next) => {
