@@ -58,12 +58,6 @@ app.set("io", io);
 // using middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsOptions));
-
-
-app.get("/", (req, res) => {
-    res.send("Hello dosto");
-});
 
 app.use(cors({
     origin: 'https://chat-app-frontend-tau-ten.vercel.app', 
@@ -71,6 +65,12 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
+
+
+app.get("/", (req, res) => {
+    res.send("Hello dosto");
+});
+
 
 io.use((socket, next) => {
     cookieParser()(
