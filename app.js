@@ -60,6 +60,10 @@ app.get("/", (req, res) => {
     res.send("Hello dosto");
 });
 
+app.use(cors({
+  origin: 'https://chat-app-frontend-tau-ten.vercel.app' 
+}));
+
 io.use((socket, next) => {
     cookieParser()(
         socket.request,
